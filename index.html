@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortelbot Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="init()">
+
+    <header class="main-header">
+        <div class="nav-content">
+            <div class="brand">
+                <div class="logo-square">V</div>
+                <span class="brand-name">Vortelbot Status</span>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-btn active" onclick="tab('status', event)">Status</button>
+                <button class="nav-btn" onclick="tab('maint', event)">Maintenance</button>
+                <button class="nav-btn" onclick="tab('incidents', event)">Incidents</button>
+            </nav>
+            <div class="header-right" id="auth-area">
+                <button class="login-trigger" onclick="openModal('authModal')">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrapper">
+        <div id="status" class="page active">
+            <div class="hero-section">
+                <div id="main-circle" class="check-icon online-bg">
+                    <i id="main-icon" class="fas fa-check"></i>
+                </div>
+                <h1 id="status-title">All systems are operational</h1>
+                <p class="update-text">
+                    Last updated <span id="last-update-time">--:--</span> • <span id="countdown">30</span>s
+                </p>
+            </div>
+
+            <div class="status-box">
+                <div class="main-service-card" onclick="toggleDetails('details-bot')">
+                    <div class="card-header">
+                        <div class="name-group">
+                            <span id="bot-dot" class="dot dot-online"></span>
+                            <span class="service-name">Vortelbot Core Service</span>
+                        </div>
+                        <div class="status-group">
+                            <span class="uptime-percentage">100.000% uptime</span>
+                            <i class="fas fa-chevron-down arrow-icon" id="bot-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="details-bot" class="item-details" style="display: none;">
+                    <div class="uptime-section">
+                        <div class="uptime-graph" id="uptime-bars"></div>
+                        <div class="uptime-footer">
+                            <span>90 days ago</span>
+                            <span>Today</span>
+                        </div>
+                    </div>
+                    <div class="grid-details">
+                        <div class="detail-item"><label>Status</label><span id="status-text-detail" class="status-val">Online</span></div>
+                        <div class="detail-item"><label>Platform</label><span class="status-val">Discord</span></div>
+                        <div class="detail-item"><label>Region</label><span class="status-val">Europe</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="maint" class="page">
+            <div class="page-header-flex"><h1>Maintenance</h1><button class="admin-plus admin-only" onclick="prepAdd('maint')">+</button></div>
+            <div id="maint-content" class="announcement-list"></div>
+        </div>
+
+        <div id="incidents" class="page">
+            <div class="page-header-flex"><h1>Incidents</h1><button class="admin-plus admin-only" onclick="prepAdd('incident')">+</button></div>
+            <div id="incident-content" class="announcement-list"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p> 2025 Vortelbot • Private Project • Contact: <a href="Vortelbot@gmail.com">Support E-Mail</a></p>
+    </footer>
+
+    <div id="authModal" class="modal-overlay">
+        <div class="modal">
+            <h2 id="modalLabel">Login</h2>
+            <div class="form">
+                <div class="input-group"><i class="fas fa-user"></i><input type="text" id="userInput" placeholder="Username"></div>
+                <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="passInput" placeholder="Password"></div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="doAuth()" id="submitText">Login</button>
+                    <button class="btn btn-secondary" onclick="closeModal('authModal')">Cancel</button>
+                </div>
+                <p class="switch-text" onclick="toggleAuthMode()" id="modeText">No account? Sign up</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal-overlay">
+        <div class="modal">
+            <h2>Add Entry</h2>
+            <div class="form">
+                <div class="input-group"><i class="fas fa-heading"></i><input type="text" id="titleInput" placeholder="Title"></div>
+                <div class="input-group area"><i class="fas fa-align-left"></i><textarea id="descInput" placeholder="Description..." rows="4"></textarea></div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="saveItem()">Save</button>
+                    <button class="btn btn-secondary" onclick="closeModal('addModal')">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
