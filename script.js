@@ -1,5 +1,4 @@
-// --- KONFIGURATION ---
-const BOT_ID = "1426918794504306879"; // Deine Discord Bot Client ID hier eintragen!
+const BOT_ID = "1426918794504306879"; 
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "user";
 
