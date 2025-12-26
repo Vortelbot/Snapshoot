@@ -1,0 +1,56 @@
+:root {
+    --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #f0f6fc;
+    --grey: #8b949e; --green: #3fb950; --red: #f85149; --blue: #58a6ff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
+body { background: var(--bg); color: var(--text); }
+.main-header { border-bottom: 1px solid var(--border); padding: 12px 0; background: var(--bg); sticky: top; }
+.nav-content { max-width: 900px; margin: 0 auto; display: flex; align-items: center; padding: 0 20px; }
+.brand { display: flex; align-items: center; margin-right: 30px; }
+.logo-square { background: var(--blue); color: white; padding: 5px 10px; border-radius: 6px; font-weight: bold; }
+.brand-name { margin-left: 10px; font-weight: 600; }
+.nav-links { flex-grow: 1; display: flex; gap: 5px; }
+.nav-btn { background: none; border: none; color: var(--grey); padding: 8px 15px; cursor: pointer; border-radius: 6px; }
+.nav-btn.active { background: #21262d; color: white; }
+.login-trigger { background: #21262d; border: 1px solid var(--border); color: white; padding: 6px 15px; border-radius: 6px; cursor: pointer; }
+
+.wrapper { max-width: 700px; margin: 50px auto; padding: 0 20px; min-height: 70vh; }
+.page { display: none; }
+.page.active { display: block; }
+.hero-section { text-align: center; margin-bottom: 40px; }
+.check-icon { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 30px; }
+.online-bg { background: rgba(63,185,80,0.1); color: var(--green); border: 1px solid var(--green); }
+
+.status-box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+.main-service-card { padding: 20px; cursor: pointer; }
+.card-header { display: flex; justify-content: space-between; align-items: center; }
+.name-group { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+
+.item-details { padding: 0 20px 20px; border-top: 1px solid var(--border); }
+.uptime-graph { display: flex; gap: 3px; height: 35px; margin: 20px 0 10px; }
+.bar { flex: 1; background: var(--green); border-radius: 2px; position: relative; }
+.bar:hover::after { content: attr(data-info); position: absolute; top: 40px; left: 50%; transform: translateX(-50%); background: black; padding: 5px; border-radius: 4px; font-size: 10px; z-index: 10; display: block; }
+.uptime-footer { display: flex; justify-content: space-between; font-size: 10px; color: var(--grey); }
+.grid-details { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 20px; }
+.detail-item label { font-size: 10px; color: var(--grey); text-transform: uppercase; }
+
+.announcement-card { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--blue); padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+.incident-card { border-left-color: orange; }
+
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000; }
+.modal { background: var(--card); width: 350px; margin: 100px auto; padding: 30px; border-radius: 15px; border: 1px solid var(--border); }
+.input-group { position: relative; margin-bottom: 15px; }
+.input-group i { position: absolute; left: 12px; top: 12px; color: var(--grey); }
+.input-group input, .input-group textarea { width: 100%; padding: 10px 10px 10px 35px; background: #0d1117; border: 1px solid var(--border); color: white; border-radius: 6px; outline: none; }
+.input-group input:focus { border-color: var(--blue); }
+.modal-actions { display: flex; flex-direction: column; gap: 10px; }
+.btn { padding: 10px; border-radius: 6px; cursor: pointer; border: none; font-weight: bold; }
+.btn-primary { background: var(--blue); color: white; }
+.btn-secondary { background: #21262d; color: white; }
+
+.footer { text-align: center; padding: 40px; color: var(--grey); font-size: 12px; }
+.footer a { color: var(--blue); text-decoration: none; }
+
+.admin-plus { background: var(--blue); color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; display: none; }
+body.is-admin .admin-only { display: block; }
