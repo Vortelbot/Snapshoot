@@ -60,36 +60,54 @@
                             <span>Today</span>
                         </div>
                     </div>
+                    
                     <div class="grid-details">
-                        <div class="detail-item"><label>Status</label><span id="status-text-detail" class="status-val">Online</span></div>
-                        <div class="detail-item"><label>Platform</label><span class="status-val">Discord</span></div>
-                        <div class="detail-item"><label>Region</label><span class="status-val">Europe</span></div>
+                        <div class="detail-item">
+                            <label>Current Status</label>
+                            <span id="status-text-detail" class="status-val">Online</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Platform</label>
+                            <span class="status-val">Discord Gateway</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Region</label>
+                            <span class="status-val">Europe-West</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="maint" class="page">
-            <div class="page-header-flex"><h1>Maintenance</h1><button class="admin-plus admin-only" onclick="prepAdd('maint')">+</button></div>
+            <div class="page-header-flex">
+                <h1>Maintenance</h1>
+                <button class="admin-plus admin-only" onclick="prepAdd('maint')"><i class="fas fa-plus"></i></button>
+            </div>
             <div id="maint-content" class="announcement-list"></div>
         </div>
 
         <div id="incidents" class="page">
-            <div class="page-header-flex"><h1>Incidents</h1><button class="admin-plus admin-only" onclick="prepAdd('incident')">+</button></div>
+            <div class="page-header-flex">
+                <h1>Incident History</h1>
+                <button class="admin-plus admin-only" onclick="prepAdd('incident')"><i class="fas fa-plus"></i></button>
+            </div>
             <div id="incident-content" class="announcement-list"></div>
         </div>
     </main>
-
-    <footer class="footer">
-        <p> 2025 Vortelbot • Private Project • Contact: <a href="Vortelbot@gmail.com">Support E-Mail</a></p>
-    </footer>
 
     <div id="authModal" class="modal-overlay">
         <div class="modal">
             <h2 id="modalLabel">Login</h2>
             <div class="form">
-                <div class="input-group"><i class="fas fa-user"></i><input type="text" id="userInput" placeholder="Username"></div>
-                <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="passInput" placeholder="Password"></div>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="userInput" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="passInput" placeholder="Password">
+                </div>
                 <div class="modal-actions">
                     <button class="btn btn-primary" onclick="doAuth()" id="submitText">Login</button>
                     <button class="btn btn-secondary" onclick="closeModal('authModal')">Cancel</button>
@@ -103,10 +121,16 @@
         <div class="modal">
             <h2>Add Entry</h2>
             <div class="form">
-                <div class="input-group"><i class="fas fa-heading"></i><input type="text" id="titleInput" placeholder="Title"></div>
-                <div class="input-group area"><i class="fas fa-align-left"></i><textarea id="descInput" placeholder="Description..." rows="4"></textarea></div>
+                <div class="input-group">
+                    <i class="fas fa-heading"></i>
+                    <input type="text" id="titleInput" placeholder="Title">
+                </div>
+                <div class="input-group area">
+                    <i class="fas fa-align-left"></i>
+                    <textarea id="descInput" placeholder="Description..." rows="4"></textarea>
+                </div>
                 <div class="modal-actions">
-                    <button class="btn btn-primary" onclick="saveItem()">Save</button>
+                    <button class="btn btn-primary" onclick="saveItem()">Save Entry</button>
                     <button class="btn btn-secondary" onclick="closeModal('addModal')">Cancel</button>
                 </div>
             </div>
